@@ -1,5 +1,8 @@
 name: Build and Release
 
+permissions:
+    contents: write # To create releases
+
 on:
     push:
         tags:
@@ -57,7 +60,7 @@ jobs:
                   path: dist/
 
             - name: Create GitHub Release
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@v2
               with:
                   files: |
                       dist/lightspreader
