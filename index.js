@@ -63,7 +63,10 @@ function handleImage() {
 	}
 
 	for (let i = 0; i < fogData.length; i += 4) {
-		fogData[i + 3] = fogData[i + 3] * (255 / fadeDistance); // Make alpha channel opaque
+		let fadeFactor = fogData[i + 3] / fadeDistance;
+		fadeFactor = Math.min(1, Math.max(0, fadeFactor));
+		let fadeAmount = 1 - Math.pow(1 - fadeFactor, 2);
+		fogData[i + 3] = 255 * fadeAmount;
 	}
 
 	fs.writeFileSync(
