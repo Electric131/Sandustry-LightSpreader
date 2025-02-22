@@ -1,0 +1,17 @@
+{
+	"name": "Sandustry-LightSpreader",
+	"version": "1.0.0",
+	"description": "Creates the fog image by spreading the light",
+	"main": "index.js",
+	"bin": "index.js",
+	"scripts": {
+		"build-linux": "pkg . --targets linux --output './dist/lightspreader'",
+		"build-windows": "pkg . --targets windows --output './dist/lightspreader.exe'"
+	},
+	"author": "Electric131",
+	"pkg": {
+		"scripts": [
+			"./index.js"
+		]
+	}
+}
